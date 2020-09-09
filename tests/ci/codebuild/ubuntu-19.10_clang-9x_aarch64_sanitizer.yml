@@ -10,4 +10,5 @@ phases:
       - export CXX=clang++-9
   build:
     commands:
+      - go version
       - ./tests/ci/run_posix_sanitizers.sh
