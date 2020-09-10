@@ -622,7 +622,7 @@ add_custom_target(
     COMMAND ${GO_EXECUTABLE} run util/all_tests.go -build-dir
             ${CMAKE_BINARY_DIR}
     COMMAND cd ssl/test/runner &&
-            ${GO_EXECUTABLE} test -shim-path $<TARGET_FILE:bssl_shim>
+            ${GO_EXECUTABLE} test -timeout 900s -shim-path $<TARGET_FILE:bssl_shim>
               ${HANDSHAKER_ARGS} ${RUNNER_ARGS}
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     DEPENDS all_tests bssl_shim handshaker
